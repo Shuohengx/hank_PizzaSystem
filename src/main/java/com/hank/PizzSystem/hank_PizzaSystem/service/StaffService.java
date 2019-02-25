@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Service
 @Transactional
@@ -45,4 +46,13 @@ public class StaffService {
   private boolean emailExists(final String email) {
     return staffRepository.findByEmail(email) != null;
   }
+
+
+  public List<Staff> listByLastName(String lastName){
+    return staffRepository.findByLastName(lastName);
+
+  }
+
+
+
 }

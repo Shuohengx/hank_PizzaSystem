@@ -1,4 +1,4 @@
-package com.hank.PizzSystem.hank_PizzaSystem;
+package com.hank.PizzSystem.hank_PizzaSystem.config;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;

@@ -47,10 +47,14 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     Privilege writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
 
     List<Privilege> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
+ //   List<Privilege> userPrivileges = Arrays.asList(readPrivilege);
+
     createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
     createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
 
     Role adminRole = roleRepository.findByName("ROLE_ADMIN");
+    Role userRole = roleRepository.findByName("ROLE_USER");
+
     if (staffRepository.findByEmail("test@test.com") == null) {
       Staff user = new Staff();
       user.setFirstName("Test");
@@ -59,12 +63,29 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
       user.setEmail("test@test.com");
       user.setRoles(Arrays.asList(adminRole));
       user.setEnabled(true);
-      staffRepository.save(user);
+  //    staffRepository.save(user);
 
-
-
-
+      Staff user1 = new Staff();
+      user.setFirstName("User");
+      user.setLastName("User");
+      user.setPassword(passwordEncoder.encode("user"));
+      user.setEmail("user@test.com");
+      user.setRoles(Arrays.asList(userRole));
+      user.setEnabled(true);
+      staffRepository.save(user1);
     }
+
+    if (staffRepository.findByEmail("user@test.com") == null) {
+      Staff user1 = new Staff();
+      user1.setFirstName("User");
+      user1.setLastName("User");
+      user1.setPassword(passwordEncoder.encode("user"));
+      user1.setEmail("user@test.com");
+      user1.setRoles(Arrays.asList(userRole));
+      user1.setEnabled(true);
+      staffRepository.save(user1);
+    }
+
 
     alreadySetup = true;
   }

@@ -1,4 +1,4 @@
-package com.hank.PizzSystem.hank_PizzaSystem;
+package com.hank.PizzSystem.hank_PizzaSystem.config;
 
 
 import com.hank.PizzSystem.hank_PizzaSystem.service.MyUserDetailsService;
@@ -61,6 +61,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.authorizeRequests()
         .antMatchers("/", "/hello").permitAll()
+    //    .antMatchers("/","/admin").hasRole("Role_User")
         .anyRequest().authenticated()
         .and()
         .formLogin()

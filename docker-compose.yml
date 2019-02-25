@@ -1,0 +1,22 @@
+version: '2.3'
+
+services:
+  mysql_local:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: pizza-order-mgmt
+      MYSQL_USER: app
+      MYSQL_PASSWORD: mysecretpassword
+    ports:
+      - "4306:3306"
+    container_name: pizza_order_mgmt_mysql
+
+  redis_local:
+    image: redis
+    command: redis-server --requirepass yourpassword
+    #    command: redis-server /usr/local/etc/redis/redis.conf
+    #    volumes:
+    #      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"

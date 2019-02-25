@@ -70,6 +70,7 @@ public class User implements Serializable {
     this.regTime = regTime;
   }
 
+
   @Override
   public String toString() {
     return "User{" +
@@ -81,4 +82,6 @@ public class User implements Serializable {
         ", regTime='" + regTime + '\'' +
         '}';
   }
+
+
 }

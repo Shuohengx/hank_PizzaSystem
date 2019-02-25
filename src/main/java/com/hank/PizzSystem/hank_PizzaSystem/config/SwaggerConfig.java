@@ -1,4 +1,4 @@
-package com.hank.PizzSystem.hank_PizzaSystem;
+package com.hank.PizzSystem.hank_PizzaSystem.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

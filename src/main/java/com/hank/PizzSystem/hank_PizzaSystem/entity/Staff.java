@@ -1,10 +1,13 @@
 package com.hank.PizzSystem.hank_PizzaSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-public class Staff {
+public class Staff implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +20,8 @@ public class Staff {
   private boolean enabled;
   private boolean tokenExpired;
 
+//JsonIgnore
+  @JsonIgnore
   @ManyToMany
   @JoinTable(
       name = "staff_roles",
